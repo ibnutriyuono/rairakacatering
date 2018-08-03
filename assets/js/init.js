@@ -4,4 +4,4 @@ $(document).ready(function(){
    $('.fixed-action-btn').floatingActionButton();
 });
 
-alert('XD');
+// alert('XD');

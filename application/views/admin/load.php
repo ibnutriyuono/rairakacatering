@@ -16,7 +16,7 @@
 	<table class="table">
 		<thead>
 			<tr>
-                <th>No</th>
+                <th>No</a></th>
 				<th>Nama Produk</th>
 				<th>Nama Pelanggan</th>
                 <th>Alamat</th>

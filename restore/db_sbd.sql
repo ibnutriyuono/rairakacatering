@@ -1,4 +1,4 @@
--- # CHeck constraint off
+#
 # TABLE STRUCTURE FOR: admin
 #
 

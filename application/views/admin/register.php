@@ -9,7 +9,7 @@
 				<div class="card">
 
 					<div class="card-action teal lighten-2 white-text center-align">
-						<h3>Daftar</h3>
+						<h3>Daftar Admin</h3>
 					</div>
 
 					<div class="card-content">

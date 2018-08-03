@@ -126,24 +126,34 @@
 			return $this->db->get('users')->num_rows();
 		}
 
-		public function edit_mobil($id){
+		public function edit_produk($id){
 		$query = $this->db->get_where('posts', ['id' => $id]);
 		return $query->row();
 		}
 
-		public function update_mobil(){
+		public function update_produk($post_image){
 		$kondisi = ['id' => $this->input->post('id')];
 		
 		$data = [
 					'title' => $this->input->post('title'),
 					'price' => $this->input->post('price'),
-					// 'harga' => $this->input->post('harga'),
-					// 'admin_id' => $this->input->post('nopol'),
 					'admin_id'=>$this->session->userdata('user_id'),
-					'post_image' => $this->input->post('userfile')
+					'post_image' => $post_image
 				];
 
 		$this->db->update('posts', $data, $kondisi);
+		}
+
+		public function update_produk_noimg(){
+			$kondisi = ['id' => $this->input->post('id')];
+			
+			$data = [
+						'title' => $this->input->post('title'),
+						'price' => $this->input->post('price'),
+						'admin_id'=>$this->session->userdata('user_id')
+					];
+	
+			$this->db->update('posts', $data, $kondisi);
 		}
 
 		public function edit_kirim($id){

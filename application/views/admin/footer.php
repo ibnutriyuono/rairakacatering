@@ -5,7 +5,7 @@
   </a>
   <ul>
     <li><a href="<?php echo base_url(); ?>admin/laporan" target='_blank'class="btn-floating tooltipped yellow darken-1"data-position="left" data-tooltip="Print Laporan Order"><i class="material-icons">print</i></a></li>
-    <li><a class="btn-floating tooltipped green"data-position="left" data-tooltip="Restore Database"><i class="material-icons">publish</i></a></li>
+    <li><a href="<?php echo base_url(); ?>admin/restore" target="_blank"class="btn-floating tooltipped green"data-position="left" data-tooltip="Restore Database"><i class="material-icons">publish</i></a></li>
     <li><a href="<?php echo base_url(); ?>admin/backup" class="btn-floating tooltipped blue"data-position="left" data-tooltip="Backup Database"><i class="material-icons">file_download</i></a></li>
   </ul>
 </div>

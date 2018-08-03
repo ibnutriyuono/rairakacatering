@@ -25,12 +25,12 @@
 			<a id="logo-container" href="<?php echo base_url(); ?>admin" class="brand-logo">RaiRakaAdmin</a>
 			<ul class="right hide-on-med-and-down">
 				<?php if($this->session->userdata('admin_username')):?>
-				<li>
+				<!-- <li>
 					<a href="<?php echo base_url(); ?>posts/create">Tambah Menu</a>
 				</li>
 				<li>
 					<a href="<?php echo base_url(); ?>categories/create">Tambah Kategori</a>
-				</li>
+				</li> -->
 				<li>
 					<a href="<?php echo base_url(); ?>admin/register">Tambah Admin</a>
 				</li>

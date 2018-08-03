@@ -1,4 +1,5 @@
--- # CHeck constraint off
+SET foreign_key_checks = 0;
+#
 # TABLE STRUCTURE FOR: admin
 #
 
@@ -1132,3 +1133,4 @@ INSERT INTO `users` (`user_id`, `name`, `email`, `username`, `password`, `regist
 INSERT INTO `users` (`user_id`, `name`, `email`, `username`, `password`, `register_date`, `alamat`) VALUES (1001, 'momo', 'momo@jyp.com', 'momo', '06c56a89949d617def52f371c357b6db', '2018-07-22 12:45:13', 'Seoul');
 
 
+SET foreign_key_checks = 1;

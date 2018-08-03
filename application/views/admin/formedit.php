@@ -14,9 +14,7 @@
 				<div class="panel panel-primary">
 					<div class="teal panel-heading">Edit Data Produk</div>
 					<div class="panel-body">
-						<!-- <form action="<?php //echo base_url('home/tambahmobil'); ?>" method="post" class="form-horizontal"> -->
-						
-						<?php echo form_open('admin/updatemobil/'.$posts->id, ['class' => 'form-horizontal', 'method' => 'post']); ?>
+						<?php echo form_open_multipart('admin/updateproduk/'.$posts->id, ['class' => 'form-horizontal', 'method' => 'post']); ?>
 							<div class="form-group <?php echo (form_error('id') != '') ? 'has-error has-feedback' : '' ?>">
 								<label for="id" class=" disabled control-label col-sm-2">Kode Produk </label>
 								<div class="col-sm-10">

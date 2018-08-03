@@ -210,7 +210,7 @@
 
 		public function edit($id){
 			$this->load->model("admin_model");
-			$data['posts'] = $this->admin_model->edit_mobil($id);
+			$data['posts'] = $this->admin_model->edit_produk($id);
 			
 			$this->load->view('admin/header');
 			$this->load->view("admin/formedit",$data);
@@ -290,14 +290,12 @@
 		    }
 	 	}
 
-		public function updatemobil($id){
-		// $this->validasi();
-
+		public function updateproduk($id){
 		
 			$this->load->model('admin_model');
-			$this->admin_model->update_mobil();
-
-			$config['upload_path'] = './assets/img/posts';
+			
+			if ($_FILES['userfile']['name']) {
+				$config['upload_path'] = './assets/img/posts';
 			$config['allowed_types'] = 'gif|jpg|png';
 			$config['max_size'] = '2048';
 			$config['max_width'] = '2000';
@@ -313,8 +311,8 @@
 				$post_image = $_FILES['userfile']['name'];
 			}
 
-			// $this->admin_model->update_gambar($post_image);
-			
+			$this->admin_model->update_produk($post_image);
+		
 			$this->session->set_flashdata('update_sukses', '<script>swal({
 				title: "Data sudah dirubah",
 				text: "Data Berhasil dirubah",
@@ -322,6 +320,17 @@
 				button: "Kembali",
 			  });</script>');
 			redirect('admin/produk');
+			}else{
+				$this->admin_model->update_produk_noimg();
+				$this->session->set_flashdata('update_sukses', '<script>swal({
+					title: "Data sudah dirubah",
+					text: "Data Berhasil dirubah",
+					icon: "success",
+					button: "Kembali",
+				  });</script>');
+				redirect('admin/produk');
+			}
+			
 		}
 
 		public function hapusdata($id){
@@ -342,7 +351,8 @@
 
 			$prefs = array(     
 				'format'      => 'zip',             
-				'filename'    => 'db_sbd.sql'
+				'filename'    => 'db_sbd.sql',
+				'foreign_key_checks' => FALSE
 			);
 
 
@@ -360,17 +370,22 @@
 
 		}
 
-		function restore()	{
-			$isi_file = file_get_contents('./database/db20110603182125.sql');
-			$string_query = rtrim( $isi_file, "\n;" );
-			$array_query = explode(";", $query);
-			foreach($array_query as $query){
-			$this->db->query($query);
+		public function restore()	{
+			// $isi_file = file_get_contents('./database/db20110603182125.sql');
+			// $string_query = rtrim( $isi_file, "\n;" );
+			// $array_query = explode(";", $query);
+			// foreach($array_query as $query){
+			// $this->db->query($query);
+
+			$this->load->view('admin/header');
+			$this->load->view('admin/restore');
+			$this->load->view('admin/footer'); 
+
 			}
 
-		}		
+				
 
-		function laporan(){
+		public function laporan(){
 			$this->load->library('pdf');
 			$this->load->model('admin_model');
 			$this->admin_model->load_order();
@@ -408,5 +423,8 @@
 			}
 			$pdf->Output();
 		}
-
+		
 	}
+		
+
+	
